@@ -11,8 +11,31 @@ $fullName = "$name $lastName";
 // var_dump($name);
 // var dump muestra información acerca de la variable que se le pasa como parámetro
 
-//existen dos tipos de cadenas, comillas simples y dobles!!
+// existen dos tipos de cadenas, comillas simples y dobles!!
 // las comillas dobles intentan interpretar lo que se encuentra dentro de ellas
+
+// $jobs = [
+//   'PHP Developer',
+//   'Java Developer',
+//   'DEVOPS',
+//   'Artificial Intelligence'
+// ];
+
+// var_dump($jobs);
+
+$jobs = [
+  [
+    'title' => 'PHP Developer',
+    'description' => "I'm an awesome developer"
+  ],
+  [
+    'title' => 'Java Developer'
+  ],
+  [
+    'title' => 'Artificial intelligence'
+  ]
+]
+
 ?>
 
 
@@ -64,8 +87,8 @@ $fullName = "$name $lastName";
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <li class="work-position">
-              <h5>PHP Developer</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
+              <h5><?php echo $jobs[0]['title'] ?></h5>
+              <p><?php echo $jobs[0]['description'] ?></p>
               <strong>Achievements:</strong>
               <ul>
                 <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
@@ -74,7 +97,7 @@ $fullName = "$name $lastName";
               </ul>
             </li>
             <li class="work-position">
-                <h5>PHP Developer</h5>
+                <h5><?php echo $jobs[1]['title'] ?></h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                 <strong>Achievements:</strong>
                 <ul>
@@ -84,7 +107,7 @@ $fullName = "$name $lastName";
                 </ul>
               </li>
               <li class="work-position">
-                  <h5>PHP Developer</h5>
+                  <h5><?php echo $jobs[2]['title'] ?></h5>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                   <strong>Achievements:</strong>
                   <ul>
