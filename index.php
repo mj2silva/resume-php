@@ -1,3 +1,21 @@
+<?php
+
+$name = 'Manuel';
+$lastName = 'Silva';
+
+// $fullName = $name . ' ' . $lastName;
+// $fullName = '$name $lastname' -> esto no funciona como se espera
+// no interpreta las variables que se le pasaron, solo lee texto
+$fullName = "$name $lastName";
+
+// var_dump($name);
+// var dump muestra información acerca de la variable que se le pasa como parámetro
+
+//existen dos tipos de cadenas, comillas simples y dobles!!
+// las comillas dobles intentan interpretar lo que se encuentra dentro de ellas
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -21,7 +39,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1>Manuel Silva</h1>
+        <h1><?php echo $fullName; ?></h1>
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: manuel.silvag1@gmail.com</li>
