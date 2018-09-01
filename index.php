@@ -26,15 +26,25 @@ $fullName = "$name $lastName";
 $jobs = [
   [
     'title' => 'PHP Developer',
-    'description' => "I'm an awesome developer"
+    'description' => "I'm an awesome PHP developer"
   ],
   [
-    'title' => 'Java Developer'
+    'title' => 'Java Developer',
+    'description' => "I'm an awesome Java developer"
   ],
   [
-    'title' => 'Artificial intelligence'
+    'title' => 'Artificial intelligence',
+    'description' => "I'm an awesome AI developer"
   ]
-]
+  ];
+
+// $var = 1;
+
+// if($var > 2) {
+//   echo "Es mayor que 2";
+// } else {
+//   echo "No es mayor que 2";
+// }
 
 ?>
 
@@ -86,17 +96,44 @@ $jobs = [
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-            <li class="work-position">
-              <h5><?php echo $jobs[0]['title'] ?></h5>
-              <p><?php echo $jobs[0]['description'] ?></p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
+
+          <?php 
+            // $index = 0;
+            // do {
+
+            //   echo '<li class="work-position">';
+            //   echo '<h5>'.$jobs[$index]['title'].'</h5>';
+            //   echo '<p>'.$jobs[$index]['description'].'</p>';
+            //   echo '<strong>Achievements:</strong>';
+            //   echo '<ul>';
+            //   echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+            //   echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+            //   echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+            //   echo '</ul>';
+            //   echo '</li>';
+            //   $index ++;
+
+            // } while ($index < 3);
+
+            // La función count en php devuelve el número de elementos que tiene el arreglos que se le pasa como parámetro
+            for ($i=0; $i < count($jobs) ; $i++) { 
+
+              echo '<li class="work-position">';
+              echo '<h5>'.$jobs[$i]['title'].'</h5>';
+              echo '<p>'.$jobs[$i]['description'].'</p>';
+              echo '<strong>Achievements:</strong>';
+              echo '<ul>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '</ul>';
+              echo '</li>';
+
+            }
+
+          ?>
+            
+            <!-- <li class="work-position">
                 <h5><?php echo $jobs[1]['title'] ?></h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                 <strong>Achievements:</strong>
@@ -115,7 +152,7 @@ $jobs = [
                     <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
                     <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
                   </ul>
-                </li>
+                </li> -->
           </ul>
         </div>
         <div>
