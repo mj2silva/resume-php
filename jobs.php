@@ -1,9 +1,6 @@
 <?php
 
-require 'app/models/Job.php';
-require 'app/models/Project.php';
-require 'lib1/Project.php';
-require_once 'app/models/Printable.php';
+require_once 'vendor/autoload.php';
 
 use App\Models\Job;
 use App\Models\Project;

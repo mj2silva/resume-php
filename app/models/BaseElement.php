@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-require_once 'app/models/Printable.php';
-
 class BaseElement implements Printable{
     protected $title;
     public $description;
