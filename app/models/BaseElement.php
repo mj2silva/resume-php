@@ -5,15 +5,15 @@ namespace App\Models;
 require_once 'app/models/Printable.php';
 
 class BaseElement implements Printable{
-    private $title;
+    protected $title;
     public $description;
     public $visible;
     public $months;
 
-    public function __construct($title, $description, $visible, $months) {
+    public function __construct($title, $description, $months) {
         $this->setTitle($title);
         $this->description = $description;
-        $this->visible = $visible;
+        $this->visible = true;
         $this->months = $months;
 
     }

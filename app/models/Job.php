@@ -5,9 +5,9 @@ namespace App\Models;
 require_once 'BaseElement.php';
 
 class Job extends BaseElement{
-    public function __construct($title, $description, $visible, $months) {
+    public function __construct($title, $description, $months) {
         $newTitle = 'Job: ' . $title;
-        parent::__construct($newTitle, $description, $visible, $months);
+        parent::__construct($newTitle, $description, $months);
     }
 
     public function getFormatDuration() {

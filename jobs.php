@@ -9,19 +9,14 @@ use App\Models\Job;
 use App\Models\Project;
 use App\Models\Printable;
 
-$job1 = new Job('PHP Developer',"I'm an awesome PHP developer",true,16);
-$job2 = new Job('Java Developer',"I'm an awesome Java developer",true,27);
-$job3 = new Job('Artificial intelligence Developer',"I'm an awesome Artificial intelligence developer",true,14);
+$job1 = new Job('PHP Developer',"I'm an awesome PHP developer",16);
+$job2 = new Job('Java Developer',"I'm an awesome Java developer",27);
+$job3 = new Job('Artificial intelligence Developer',"I'm an awesome Artificial intelligence developer",14);
 
 $project1 = new Project('Project 1','Description',true,16);
 
-$jobs = [
-    $job1, $job2, $job3
-];
-
-$projects = [
-  $project1
-];
+$jobs = [$job1, $job2, $job3];
+$projects = [$project1];
 
 function printElement(Printable $element) {
   if($element->visible != true) {
