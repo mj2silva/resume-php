@@ -1,6 +1,8 @@
 <?php
 
 require('jobs.php');
+use App\Models\Job;
+use App\Models\Project;
 
 // Para traer archivos se puede usar la funcion include o require
 // include incluye el archivo si lo encuentra y si no continúa con el resto del programa

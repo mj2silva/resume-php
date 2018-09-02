@@ -2,7 +2,12 @@
 
 require 'app/models/Job.php';
 require 'app/models/Project.php';
+require 'lib1/Project.php';
 require_once 'app/models/Printable.php';
+
+use App\Models\Job;
+use App\Models\Project;
+use App\Models\Printable;
 
 $job1 = new Job('PHP Developer',"I'm an awesome PHP developer",true,16);
 $job2 = new Job('Java Developer',"I'm an awesome Java developer",true,27);
