@@ -91,48 +91,25 @@ $fullName = "$name $lastName";
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-
-          <?php 
-            // $index = 0;
-            // do {
-
-            //   echo '<li class="work-position">';
-            //   echo '<h5>'.$jobs[$index]['title'].'</h5>';
-            //   echo '<p>'.$jobs[$index]['description'].'</p>';
-            //   echo '<strong>Achievements:</strong>';
-            //   echo '<ul>';
-            //   echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-            //   echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-            //   echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-            //   echo '</ul>';
-            //   echo '</li>';
-            //   $index ++;
-
-            // } while ($index < 3);
-
-            // La función count en php devuelve el número de elementos que tiene el arreglos que se le pasa como parámetro
-            
-            // $totalMonths = 0;
-            
-            for ($i=0; $i < count($jobs); $i++) {
-              // if($jobs[$i]['active'] != true) {
-              // if ($totalMonths >= $limitMonths) {
-                //continue
-              //   break;
-              // }
-
-              // $totalMonths += $jobs[$i]['months'];
-              
-              printJob($jobs[$i]);
-
-            }
-
-          ?>
+            <?php
+              // La función count en php devuelve el número de elementos que tiene el arreglos que se le pasa como parámetro
+              for ($i=0; $i < count($jobs); $i++) {
+                printElement($jobs[$i]);
+              }
+            ?>
           </ul>
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
+            <ul>
+              <?php
+                for ($i = 0; $i < count($projects); $i++) {
+                  printElement($projects[$i]);
+                }
+              ?>
+            </ul>
             <div class="project">
+            
                 <h5>Project X</h5>
                 <div class="row">
                     <div class="col-3">
