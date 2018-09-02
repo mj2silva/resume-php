@@ -23,7 +23,7 @@ $fullName = "$name $lastName";
 
 // var_dump($jobs);
 
-$limitMonths = 60;
+// $limitMonths = 2000;
 
 $jobs = [
   [
@@ -53,12 +53,43 @@ $jobs = [
   [
     'title' => 'Mobile application designer',
     'description' => "I'm an awesome Mobile application designer",
-    'visible' => false,
+    'visible' => true,
     'months' => 32
   ],
 
   ];
 
+  function getDuration($months) {
+    $years = floor($months/12);
+    $extraMonths = $months % 12;
+
+    if($years == 1) {
+      return "$years year, $extraMonths months";
+    } else {
+      return "$years years, $extraMonths months";
+    }
+    
+  }
+
+  function printJob($job) {
+    if($job['visible'] != true) {
+      return NULL;
+    }
+              
+    echo '<li class="work-position">';
+    echo '<h5>'.$job['title'].'</h5>';
+    echo '<p>'.$job['description'].'</p>';
+    echo '<p>'.getDuration($job['months']).'</p>';
+    echo '<strong>Achievements:</strong>';
+    echo '<ul>';
+    echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+    echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+    echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+    echo '</ul>';
+    echo '</li>';
+
+  }
+  
 // $var = 1;
 
 // if($var > 2) {
@@ -105,7 +136,7 @@ $jobs = [
     </div>
     <div class="row">
       <div class="col">
-        <h2 class="border-bottom-gray" >Carrer Summary</h2>
+        <h2 class="border-bottom-gray" >Career Summary</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -138,27 +169,18 @@ $jobs = [
 
             // La función count en php devuelve el número de elementos que tiene el arreglos que se le pasa como parámetro
             
-            $totalMonths = 0;
+            // $totalMonths = 0;
             
             for ($i=0; $i < count($jobs); $i++) {
               // if($jobs[$i]['active'] != true) {
-              if ($totalMonths >= $limitMonths) {
+              // if ($totalMonths >= $limitMonths) {
                 //continue
-                break;
-              }
+              //   break;
+              // }
 
-              $totalMonths += $jobs[$i]['months'];
+              // $totalMonths += $jobs[$i]['months'];
               
-              echo '<li class="work-position">';
-              echo '<h5>'.$jobs[$i]['title'].'</h5>';
-              echo '<p>'.$jobs[$i]['description'].'</p>';
-              echo '<strong>Achievements:</strong>';
-              echo '<ul>';
-              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-              echo '</ul>';
-              echo '</li>';
+              printJob($jobs[$i]);
 
             }
 
