@@ -23,19 +23,40 @@ $fullName = "$name $lastName";
 
 // var_dump($jobs);
 
+$limitMonths = 60;
+
 $jobs = [
   [
     'title' => 'PHP Developer',
-    'description' => "I'm an awesome PHP developer"
+    'description' => "I'm an awesome PHP developer",
+    'visible' => true,
+    'months' => 16
   ],
   [
     'title' => 'Java Developer',
-    'description' => "I'm an awesome Java developer"
+    'description' => "I'm an awesome Java developer",
+    'visible' => false,
+    'months' => 24
   ],
   [
     'title' => 'Artificial intelligence',
-    'description' => "I'm an awesome AI developer"
-  ]
+    'description' => "I'm an awesome AI developer",
+    'visible' => true,
+    'months' => 12
+  ],
+  [
+    'title' => 'C++ & C# Developer',
+    'description' => "I'm an awesome C++ & C# developer",
+    'visible' => true,
+    'months' => 16
+  ],
+  [
+    'title' => 'Mobile application designer',
+    'description' => "I'm an awesome Mobile application designer",
+    'visible' => false,
+    'months' => 32
+  ],
+
   ];
 
 // $var = 1;
@@ -116,8 +137,18 @@ $jobs = [
             // } while ($index < 3);
 
             // La función count en php devuelve el número de elementos que tiene el arreglos que se le pasa como parámetro
-            for ($i=0; $i < count($jobs) ; $i++) { 
+            
+            $totalMonths = 0;
+            
+            for ($i=0; $i < count($jobs); $i++) {
+              // if($jobs[$i]['active'] != true) {
+              if ($totalMonths >= $limitMonths) {
+                //continue
+                break;
+              }
 
+              $totalMonths += $jobs[$i]['months'];
+              
               echo '<li class="work-position">';
               echo '<h5>'.$jobs[$i]['title'].'</h5>';
               echo '<p>'.$jobs[$i]['description'].'</p>';
