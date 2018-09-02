@@ -2,6 +2,7 @@
 
 require 'app/models/Job.php';
 require 'app/models/Project.php';
+require_once 'app/models/Printable.php';
 
 $job1 = new Job('PHP Developer',"I'm an awesome PHP developer",true,16);
 $job2 = new Job('Java Developer',"I'm an awesome Java developer",true,27);
@@ -17,14 +18,14 @@ $projects = [
   $project1
 ];
 
-function printElement($element) {
+function printElement(Printable $element) {
   if($element->visible != true) {
     return NULL;
   }
               
   echo '<li class="work-position">';
   echo '<h5>'. $element->getTitle().'</h5>';
-  echo '<p>'. $element->description.'</p>';
+  echo '<p>'. $element->getDescription().'</p>';
   echo '<p>'. $element->getFormatDuration().'</p>';
   echo '<strong>Achievements:</strong>';
   echo '<ul>';

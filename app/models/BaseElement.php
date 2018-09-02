@@ -1,6 +1,8 @@
 <?php
 
-class BaseElement {
+require_once 'app/models/Printable.php';
+
+class BaseElement implements Printable{
     private $title;
     public $description;
     public $visible;
@@ -23,6 +25,10 @@ class BaseElement {
 
     public function getTitle() {
         return $this->title;
+    }
+
+    public function getDescription() {
+        return $this->description;
     }
 
     //devuelve el tiempo de duracion del trabajo en el formato "x años, y meses"

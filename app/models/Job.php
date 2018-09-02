@@ -2,7 +2,7 @@
 
 require_once 'BaseElement.php';
 
-class Job extends BaseElement {
+class Job extends BaseElement{
     public function __construct($title, $description, $visible, $months) {
         $newTitle = 'Job: ' . $title;
         parent::__construct($newTitle, $description, $visible, $months);
