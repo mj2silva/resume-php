@@ -1,8 +1,30 @@
 <?php
 
-require('jobs.php');
+require_once 'vendor/autoload.php';
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 use App\Models\Job;
 use App\Models\Project;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+  'driver' => 'mysql',
+  'host' => 'localhost',
+  'database' => 'resume',
+  'username' => 'root',
+  'password' => '',
+  'charset' => 'utf8',
+  'collation' => 'utf8_unicode_ci',
+  'prefix' => '',
+]);
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
+require('jobs.php');
+
+
 
 // Para traer archivos se puede usar la funcion include o require
 // include incluye el archivo si lo encuentra y si no continúa con el resto del programa
