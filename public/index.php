@@ -48,6 +48,15 @@ $map->get('addProject', '/resume/projects/add', [
     'action' => 'addProjectActionByGet'
 ]);
 
+$map->post('saveJobs', '/resume/jobs/add', [
+    'controller' => 'App\Controllers\AddJobController',
+    'action' => 'addJobActionByGet'
+]);
+$map->post('saveProjects', '/resume/projects/add', [
+    'controller' => 'App\Controllers\AddProjectController',
+    'action' => 'addProjectActionByGet'
+]);
+
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 
@@ -59,7 +68,7 @@ if (!$route) {
     $actionName = $handlerData['action'];
 
     $controller = new $controllerName;
-    $controller->$actionName();
+    $controller->$actionName($request);
     // require $route->handler;
 }
 
