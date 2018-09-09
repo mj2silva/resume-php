@@ -1,16 +1,3 @@
-<?php
-
-use App\Models\Job;
-
-if(! empty($_POST)) {
-    $job = new Job();
-    $job->title = $_POST['title'];
-    $job->description = $_POST['description'];
-    $job->save();
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +10,13 @@ if(! empty($_POST)) {
 </head>
 <body>
     <div class = "container">
-        <h1>Add Job Form:</h1>
-        <form action = "addJob.php" method = "post">
-            <label for "">Title:</label>
-            <input type = "text" name = "title"> </br>
+        <h1>Add Project Form:</h1>
+        <form action = "" method = "post">
+            <label for "">Name:</label>
+            <input type = "text" name = "name"> </br>
             <label for "">Description:</label>
             <input type = "text" name = "description"></br>
-            <button type = "submit">Save new job</button>
+            <button type = "submit">Save new project</button>
         </form>
     </div>
 </body>
