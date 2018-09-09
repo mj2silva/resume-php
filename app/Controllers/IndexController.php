@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Job;
 use App\Models\Project;
 
-class IndexController {
+class IndexController extends BaseController{
     public function indexAction() {
         $jobs = Job::all();
         $projects = Project::all();
@@ -14,6 +14,9 @@ class IndexController {
         $lastName = 'Silva';
         $fullName = "$name $lastName";
 
-        include '../views/index.php';
+        return $this->renderHTML('index.twig', [
+            'fullName' => $fullName,
+            'jobs' => $jobs
+        ]);
     }
 }

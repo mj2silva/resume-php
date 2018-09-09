@@ -21,7 +21,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1><?php echo $fullName; ?></h1>
+        <h1>{{ fullName }}</h1>
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: manuel.silvag1@gmail.com</li>
@@ -45,12 +45,19 @@
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-            <?php
-              // La función count en php devuelve el número de elementos que tiene el arreglos que se le pasa como parámetro
-              for ($i=0; $i < count($jobs); $i++) {
-                printElement($jobs[$i]);
-              }
-            ?>
+              {% for job in jobs %}
+                  <li class="work-position">
+                  <h5>{{ job.title }}</h5>
+                  <p>{{ job.description }}</p>
+                  {# <p>{{ job.getFormatDuration }}</p> #}
+                  <strong>Achievements:</strong>
+                  <ul>
+                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                  </ul>
+                  </li>
+              {% endfor %}
           </ul>
         </div>
         <div>
