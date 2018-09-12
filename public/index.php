@@ -73,23 +73,3 @@ if (!$route) {
     echo $response->getBody();
     // require $route->handler;
 }
-
-function printElement($element) {
-    echo '<li class="work-position">';
-    
-    if ($element->title) {
-        echo '<h5>' . $element->title . '</h5>';
-    } else {
-        echo '<h5>' . $element->name . '</h5>';
-    }
-
-    echo '<p>' . $element->description . '</p>';
-    echo '<p>' . $element->getFormatDuration() . '</p>';
-    echo '<strong>Achievements:</strong>';
-    echo '<ul>';
-    echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-    echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-    echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-    echo '</ul>';
-    echo '</li>';
-}
