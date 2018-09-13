@@ -20,7 +20,7 @@ $capsule->addConnection([
     'driver' => getenv('DATABASE_DRIVER'),
     'host' => getenv('DATABASE_HOST'),
     'username' => getenv('DATABASE_USER'),
-    'database' => getenv('DATABASE_URL'),
+    'database' => getenv('DATABASE_NAME'),
     'password' => getenv('DATABASE_PASS'),
     'charset' => 'utf8',
     'collation' =>'utf8_unicode_ci',
