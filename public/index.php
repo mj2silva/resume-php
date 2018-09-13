@@ -47,7 +47,15 @@ $map->get('addProject', '/resume/projects/add', [
     'controller' => 'App\Controllers\AddProjectController',
     'action' => 'addProjectActionByGet'
 ]);
+$map->get('addUser', '/resume/users/add', [
+    'controller' => 'App\Controllers\AddUserController',
+    'action' => 'addUserActionByGet'
+]);
 
+$map->post('saveUser', '/resume/users/add', [
+    'controller' => 'App\Controllers\AddUserController',
+    'action' => 'addUserActionByGet'
+]);
 $map->post('saveJobs', '/resume/jobs/add', [
     'controller' => 'App\Controllers\AddJobController',
     'action' => 'addJobActionByGet'
@@ -56,6 +64,7 @@ $map->post('saveProjects', '/resume/projects/add', [
     'controller' => 'App\Controllers\AddProjectController',
     'action' => 'addProjectActionByGet'
 ]);
+
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
