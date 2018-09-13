@@ -40,53 +40,53 @@ $request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 
 $routerContainer = new RouterContainer();
 $map = $routerContainer->getMap();
-$map->get('index','/resume/', [
+$map->get('index','/', [
     'controller' => 'App\Controllers\IndexController',
     'action' => 'indexAction'
 ]);
-$map->get('addJobs','/resume/jobs/add', [
+$map->get('addJobs','/jobs/add', [
     'controller' => 'App\Controllers\AddJobController',
     'action' => 'addJobActionByGet',
     'auth' => true
 ]);
-$map->get('addProject', '/resume/projects/add', [
+$map->get('addProject', '/projects/add', [
     'controller' => 'App\Controllers\AddProjectController',
     'action' => 'addProjectActionByGet',
     'auth' => true
 ]);
-$map->get('addUser', '/resume/users/add', [
+$map->get('addUser', '/users/add', [
     'controller' => 'App\Controllers\AddUserController',
     'action' => 'addUserActionByGet',
     'auth' => true
 ]);
-$map->get('loginForm', '/resume/login', [
+$map->get('loginForm', '/login', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'loginActionByGet'
 ]);
-$map->get('logOut', '/resume/logout', [
+$map->get('logOut', '/logout', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogOut'
 ]);
 
-$map->get('admin', '/resume/admin', [
+$map->get('admin', '/admin', [
     'controller' => 'App\Controllers\AdminController',
     'action' => 'getIndex',
     'auth' => true
 ]);
 
-$map->post('saveUser', '/resume/users/add', [
+$map->post('saveUser', '/users/add', [
     'controller' => 'App\Controllers\AddUserController',
     'action' => 'addUserActionByGet'
 ]);
-$map->post('saveJobs', '/resume/jobs/add', [
+$map->post('saveJobs', '/jobs/add', [
     'controller' => 'App\Controllers\AddJobController',
     'action' => 'addJobActionByGet'
 ]);
-$map->post('saveProjects', '/resume/projects/add', [
+$map->post('saveProjects', '/projects/add', [
     'controller' => 'App\Controllers\AddProjectController',
     'action' => 'addProjectActionByGet'
 ]);
-$map->post('authentication', '/resume/auth', [
+$map->post('authentication', '/auth', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'loginActionByGet'
 ]);
