@@ -9,17 +9,22 @@ require_once '../vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
 
+session_start();
+
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/..');
+$dotenv->load();
+
 $capsule = new Capsule;
 
 $capsule->addConnection([
     'driver' => 'mysql',
     'host' => 'localhost',
-    'database' => 'resume',
-    'username' => 'root',
-    'password' => '',
-    'charset' => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix' => '',
+    'username' => getenv('DB_USERNAME'),
+    'database' => getenv('DB_NAME'),
+    'password' => getenv('DB_PASSWORD'),
+    'charset' => getenv('DB_CHARSET'),
+    'collation' => getenv('DB_COLLATION'),
+    'prefix' => getenv('DB_PREFIX')
 ]);
 
 $capsule->setAsGlobal();
@@ -41,15 +46,32 @@ $map->get('index','/resume/', [
 ]);
 $map->get('addJobs','/resume/jobs/add', [
     'controller' => 'App\Controllers\AddJobController',
-    'action' => 'addJobActionByGet'
+    'action' => 'addJobActionByGet',
+    'auth' => true
 ]);
 $map->get('addProject', '/resume/projects/add', [
     'controller' => 'App\Controllers\AddProjectController',
-    'action' => 'addProjectActionByGet'
+    'action' => 'addProjectActionByGet',
+    'auth' => true
 ]);
 $map->get('addUser', '/resume/users/add', [
     'controller' => 'App\Controllers\AddUserController',
-    'action' => 'addUserActionByGet'
+    'action' => 'addUserActionByGet',
+    'auth' => true
+]);
+$map->get('loginForm', '/resume/login', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'loginActionByGet'
+]);
+$map->get('logOut', '/resume/logout', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLogOut'
+]);
+
+$map->get('admin', '/resume/admin', [
+    'controller' => 'App\Controllers\AdminController',
+    'action' => 'getIndex',
+    'auth' => true
 ]);
 
 $map->post('saveUser', '/resume/users/add', [
@@ -64,6 +86,10 @@ $map->post('saveProjects', '/resume/projects/add', [
     'controller' => 'App\Controllers\AddProjectController',
     'action' => 'addProjectActionByGet'
 ]);
+$map->post('authentication', '/resume/auth', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'loginActionByGet'
+]);
 
 
 $matcher = $routerContainer->getMatcher();
@@ -73,12 +99,24 @@ if (!$route) {
     echo 'No route';
 } else {
     $handlerData = $route->handler;
-    $controllerName = $handlerData['controller'];
-    $actionName = $handlerData['action'];
+    $private = $handlerData['auth'] ?? false;
+    $sessionId = $_SESSION['userId'] ?? null;
+    if ($private && !$sessionId) {
+        $controller = new App\Controllers\AuthController;
+        $response = $controller->loginActionByGet($request);
+    } else {
+        $controllerName = $handlerData['controller'];
+        $actionName = $handlerData['action'];
+        $controller = new $controllerName;
+        $response = $controller->$actionName($request);
+    }
 
-    $controller = new $controllerName;
-    $response = $controller->$actionName($request);
-
-    echo $response->getBody();
+    foreach ($response -> getHeaders() as $name => $values) {
+        foreach ($values as $value) {
+            header(sprintf('%s: %s', $name, $value), false);
+        }
+    }
+    http_response_code($response -> getStatusCode());
+    echo $response -> getBody();
     // require $route->handler;
 }

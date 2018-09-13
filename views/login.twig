@@ -1,0 +1,16 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <h1>Log in</h1>
+    <div class = "alert alert-primary" role = "alert">
+        {{ responseMessage }}
+    </div>
+    <form action = "/resume/auth" method = "post">
+        <label for "">Email:</label>
+        <input type = "text" name = "email"></br>
+        <label for "">Password:</label>
+        <input type = "password" name = "password"></br>
+        <button type = "submit">Log in</button></br>
+        <a href = "/resume/users/add">Not a user yet?</a>
+    </form>
+{% endblock %}
