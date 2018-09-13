@@ -17,14 +17,14 @@ $dotenv->load();
 $capsule = new Capsule;
 
 $capsule->addConnection([
-    'driver' => 'mysql',
-    'host' => 'localhost',
-    'username' => getenv('DB_USERNAME'),
-    'database' => getenv('DB_NAME'),
-    'password' => getenv('DB_PASSWORD'),
-    'charset' => getenv('DB_CHARSET'),
-    'collation' => getenv('DB_COLLATION'),
-    'prefix' => getenv('DB_PREFIX')
+    'driver' => getenv('DATABASE_DRIVER'),
+    'host' => getenv('DATABASE_HOST'),
+    'username' => getenv('DATABASE_USER'),
+    'database' => getenv('DATABASE_URL'),
+    'password' => getenv('DATABASE_PASS'),
+    'charset' => 'utf8',
+    'collation' =>'utf8_unicode_ci',
+    'prefix' => ''
 ]);
 
 $capsule->setAsGlobal();
