@@ -2,11 +2,15 @@
 
 {% block content %}
     <h1>Add Job Form:</h1>
-    <form action = "" method = "post">
+    <div class = "alert alert-primary" role = "alert">
+        {{ responseMessage }}
+    </div>
+    <form action = "/resume/jobs/add" method = "post" enctype = "multipart/form-data">
         <label for "">Title:</label>
         <input type = "text" name = "title"> </br>
         <label for "">Description:</label>
         <input type = "text" name = "description"></br>
+        <input type = "file" name = "logo"></br>
         <button type = "submit">Save new job</button>
     </form>
 {% endblock %}
